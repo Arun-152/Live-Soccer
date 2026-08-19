@@ -1,0 +1,642 @@
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px 24px 64px;
+  animation: fadeIn 0.3s ease;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  transition: color var(--transition-fast);
+}
+
+.backLink:hover {
+  color: var(--accent-color);
+}
+
+/* Header */
+.header {
+  background: linear-gradient(180deg, rgba(34, 197, 94, 0.08), var(--bg-card));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--pitch-pattern);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.leagueContext {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding: 5px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-fast);
+}
+
+.leagueContext:hover {
+  border-color: var(--border-hover);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-secondary);
+}
+
+.leagueLogo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.lastUpdated {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}
+
+.scoreboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 16px;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.teamLogo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.teamName {
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.scoreCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 0 8px;
+}
+
+.score {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-variant-numeric: tabular-nums;
+}
+
+.scoreDivider {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.scoreWinner {
+  color: var(--accent-color);
+}
+
+.statusInfo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.liveIndicator {
+  width: 8px;
+  height: 8px;
+  background-color: var(--live-color);
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+.statusText {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.liveText {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--live-color);
+}
+
+/* Tabs */
+.tabsContainer {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 28px;
+  padding: 4px;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.tabsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.tabButton {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.tabButton:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.activeTab {
+  color: var(--text-primary);
+  background: var(--accent-color);
+  box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+}
+
+.tabContent {
+  min-height: 300px;
+}
+
+/* Overview Tab */
+.overviewTab {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.overviewGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.infoCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.infoLabel {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.infoValue {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+
+/* Empty/Error */
+.emptyState,
+.errorState {
+  padding: 48px 24px;
+  text-align: center;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px dashed rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.emptyState p,
+.errorState p {
+  margin: 0;
+  font-size: 0.9rem;
+  max-width: 360px;
+}
+
+.errorState h2 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.emptyIcon,
+.errorIcon {
+  opacity: 0.25;
+}
+
+.backButton {
+  margin-top: 8px;
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  background: var(--accent-glow);
+  color: var(--accent-color);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: all var(--transition-fast);
+}
+
+.backButton:hover {
+  background: rgba(16, 185, 129, 0.2);
+}
+
+/* Standings Tab */
+.tableContainer {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+}
+
+.standingsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.standingsTable th {
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 12px 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.02);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.standingsTable td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.standingsRow {
+  transition: background var(--transition-fast);
+}
+
+.standingsRow:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.highlightedRow {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid var(--accent-color);
+}
+
+.highlightedRow:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.centerAlign {
+  text-align: center;
+}
+
+.leftAlign {
+  text-align: left;
+}
+
+.rank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.promotion {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-color);
+}
+
+.relegation {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--live-color);
+}
+
+.europa {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.teamCell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.teamLogoSmall {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.teamNameSmall {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.points {
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+
+/* Lineups Tab */
+.lineupsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.teamLineup {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.lineupHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.lineupTeamLogo {
+  width: 28px;
+  height: 28px;
+}
+
+.lineupHeader h3 {
+  flex: 1;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.formation {
+  background-color: rgba(255, 255, 255, 0.06);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.playersList {
+  margin-bottom: 20px;
+}
+
+.playersList h4 {
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.playerRow {
+  display: flex;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  font-size: 0.85rem;
+}
+
+.playerRow:last-child {
+  border-bottom: none;
+}
+
+.playerNumber {
+  width: 28px;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.playerName {
+  flex: 1;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.playerPosition {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background-color: rgba(255, 255, 255, 0.04);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.coachInfo h4 {
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.coachInfo p {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Statistics Tab */
+.statsContainer {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.statsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.statsTeam {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.statsTeam img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.statsTeam span {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.statRow {
+  margin-bottom: 16px;
+}
+
+.statValues {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.statNum {
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+  min-width: 40px;
+}
+
+.statValues .statNum:first-child {
+  text-align: left;
+}
+
+.statValues .statNum:last-child {
+  text-align: right;
+}
+
+.statLabel {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-align: center;
+  flex: 1;
+}
+
+.statBar {
+  display: flex;
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.04);
+  border-radius: 3px;
+  overflow: hidden;
+  gap: 2px;
+}
+
+.statBarHome {
+  background: linear-gradient(90deg, #10b981, #34d399);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.statBarAway {
+  background: linear-gradient(90deg, #94a3b8, #cbd5e1);
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 16px 16px 48px;
+  }
+  .teamLogo {
+    width: 48px;
+    height: 48px;
+  }
+  .teamName {
+    font-size: 0.85rem;
+  }
+  .score {
+    font-size: 2.5rem;
+  }
+  .lineupsContainer {
+    grid-template-columns: 1fr;
+  }
+  .overviewGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .score {
+    font-size: 2rem;
+  }
+  .teamLogo {
+    width: 40px;
+    height: 40px;
+  }
+}

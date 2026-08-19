@@ -1,0 +1,227 @@
+.card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  transition: all var(--transition-base);
+  min-width: 280px;
+  max-width: 340px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--pitch-pattern);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  z-index: 0;
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+  background-color: var(--bg-hover);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:active {
+  transform: translateY(-1px);
+}
+
+.header, .teamsContainer, .footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Live card accent */
+.cardLive {
+  border-color: rgba(239, 68, 68, 0.15);
+}
+
+.cardLive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--live-color), #f97316, var(--live-color));
+  background-size: 200% 100%;
+  animation: liveShift 3s linear infinite;
+}
+
+@keyframes liveShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+.cardLive:hover {
+  border-color: rgba(239, 68, 68, 0.25);
+  box-shadow: var(--shadow-lg), 0 0 24px var(--live-glow);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.leagueInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.leagueLogo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.leagueName {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.liveIndicator {
+  width: 7px;
+  height: 7px;
+  background-color: var(--live-color);
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+.liveBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  background: rgba(239, 68, 68, 0.12);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--live-color);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.statusText {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.liveText {
+  color: var(--live-color);
+}
+
+.ftText {
+  color: var(--text-secondary);
+}
+
+.nsText {
+  color: var(--accent-color);
+  font-weight: 500;
+}
+
+.teamsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.teamLogo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.teamName {
+  flex: 1;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.score {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 20px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.scoreWinner {
+  color: var(--accent-color);
+}
+
+.footer {
+  padding: 10px 16px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 6px;
+}
+
+.viewDetails {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color var(--transition-fast);
+}
+
+.card:hover .viewDetails {
+  color: var(--accent-color);
+}
+
+.viewArrow {
+  transition: transform var(--transition-fast);
+}
+
+.card:hover .viewArrow {
+  transform: translateX(2px);
+}
