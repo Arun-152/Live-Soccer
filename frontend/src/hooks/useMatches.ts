@@ -6,8 +6,8 @@ export const useLiveMatches = () => {
   return useQuery({
     queryKey: ['matches', 'live'],
     queryFn: async (): Promise<Match[]> => {
-      const response = await api.get('/matches/live');
-      return response.data.data;
+      const response = await api.get('/fixtures', { params: { live: 'all' } });
+      return response.data.response;
     },
     refetchInterval: 30000, // Refetch every 30s for live data
   });
@@ -17,8 +17,8 @@ export const useMatchesByDate = (date: string) => {
   return useQuery({
     queryKey: ['matches', 'date', date],
     queryFn: async (): Promise<Match[]> => {
-      const response = await api.get('/matches', { params: { date } });
-      return response.data.data;
+      const response = await api.get('/fixtures', { params: { date } });
+      return response.data.response;
     },
     refetchInterval: (query) => {
       const matches = query.state.data;
@@ -34,8 +34,8 @@ export const useMatchesByLeague = (leagueId: number, season: number) => {
   return useQuery({
     queryKey: ['matches', 'league', leagueId, season],
     queryFn: async (): Promise<Match[]> => {
-      const response = await api.get('/matches/league', { params: { league: leagueId, season } });
-      return response.data.data;
+      const response = await api.get('/fixtures', { params: { league: leagueId, season } });
+      return response.data.response;
     },
     enabled: !!leagueId && !!season,
   });

@@ -10,7 +10,7 @@ export const useStandings = (leagueId: number, season: number) => {
       // The API returns an array of leagues, we assume index 0 is our league, 
       // and it contains a nested array of standings (sometimes multiple groups).
       // We will flatten it for simplicity, or just return the first group.
-      const leagueData = response.data.data[0]?.league;
+      const leagueData = response.data.response?.[0]?.league;
       if (!leagueData || !leagueData.standings) return [];
       
       // Usually standings[0] is the main table

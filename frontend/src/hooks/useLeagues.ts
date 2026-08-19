@@ -25,7 +25,7 @@ export const useLeagues = () => {
     queryKey: ['leagues', 2026],
     queryFn: async (): Promise<League[]> => {
       const response = await api.get('/leagues');
-      const rawData: ApiLeagueResponse[] = response.data?.data || [];
+      const rawData: ApiLeagueResponse[] = response.data?.response || [];
       
       const seenLeagues = new Set<number>();
 
