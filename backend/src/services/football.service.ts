@@ -54,8 +54,8 @@ export const footballService = {
   },
   
   getLeagues: async () => {
-    // In a real app we might cache this or fetch a specific season
-    const response = await apiClient.get('/leagues', { params: { current: 'true' } });
+    // Fetch all leagues so we can filter by specific seasons on the frontend
+    const response = await apiClient.get('/leagues');
     return response.data;
   },
   

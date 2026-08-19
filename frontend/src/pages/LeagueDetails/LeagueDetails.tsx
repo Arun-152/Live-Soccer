@@ -25,7 +25,7 @@ export const LeagueDetails = () => {
   const { data: leagues, isLoading: leaguesLoading } = useLeagues();
   const league = useMemo(() => leagues?.find(l => l.id === leagueId), [leagues, leagueId]);
   
-  const season = league?.season || new Date().getFullYear();
+  const season = league?.season || 2026;
 
   const { data: matches, isLoading: matchesLoading, isError: matchesError } = useMatchesByLeague(leagueId, season);
   const { data: standings, isLoading: standingsLoading, isError: standingsError } = useStandings(leagueId, season);
