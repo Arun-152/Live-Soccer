@@ -19,7 +19,7 @@ export const Home = () => {
   const today = new Date();
   const [dateOffset, setDateOffset] = useState(0);
   const [activeFilter, setActiveFilter] = useState<FilterType>('All');
-
+  console.log("here here")
   const selectedDate = useMemo(() => {
     const d = new Date(today);
     d.setDate(d.getDate() + dateOffset);
